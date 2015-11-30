@@ -1,3 +1,9 @@
+ceph (0.94.5-1ttnn3) trusty; urgency=medium
+
+  * ttnn backports
+
+ -- Mehdi Abaakouk <sileht@sileht.net>  Mon, 30 Nov 2015 22:15:09 +0000
+
 ceph (0.94.5-1) stable; urgency=low
 
   * New upstream release

@@ -71,9 +71,9 @@ dvers="$vers-1"
 #
 cd ceph-$vers
 chvers=$(head -1 debian/changelog | perl -ne 's/.*\(//; s/\).*//; print')
-if [ "$chvers" != "$dvers" ]; then
-   DEBEMAIL="contact@ceph.com" dch -D $codename --force-distribution -b -v "$dvers" "new version"
-fi
+#if [ "$chvers" != "$dvers" ]; then
+#   DEBEMAIL="contact@ceph.com" dch -D $codename --force-distribution -b -v "$dvers" "new version"
+#fi
 #
 # create the packages
 # a) with ccache to speed things up when building repeatedly
@@ -81,6 +81,8 @@ fi
 # c) use half of the available processors
 #
 PATH=/usr/lib/ccache:$PATH dpkg-buildpackage -j$(($(nproc) / 2)) -uc -us
+
+exit 0
 cd ../..
 mkdir -p $codename/conf
 cat > $codename/conf/distributions <<EOF
